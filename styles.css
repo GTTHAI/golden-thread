@@ -314,16 +314,29 @@ nav {
 .hero__stat {
   flex: 1 1 150px;
   min-width: 130px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(14px);
+  background: linear-gradient(135deg,
+    rgba(255, 247, 229, 0.95),
+    rgba(250, 239, 215, 0.9),
+    rgba(248, 232, 205, 0.85)
+  );
+  backdrop-filter: blur(16px);
   border-radius: 20px;
   padding: 18px 22px;
-  box-shadow: 0 12px 30px rgba(28, 28, 40, 0.08);
+  box-shadow: 0 15px 35px rgba(198, 145, 44, 0.15),
+              0 5px 15px rgba(255, 214, 138, 0.1);
+  border: 1px solid rgba(255, 214, 138, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__stat:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(198, 145, 44, 0.2),
+              0 8px 25px rgba(255, 214, 138, 0.15);
 }
 
 .hero__stat strong {
@@ -332,15 +345,17 @@ nav {
   text-align: center;
   margin-bottom: 4px;
   font-weight: 700;
-  color: var(--text);
+  color: #8b5a2b;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .hero__stat span {
-  color: var(--text-soft);
+  color: #a67c4a;
   font-size: 0.9rem;
   text-align: center;
   line-height: 1.4;
   display: block;
+  font-weight: 500;
 }
 
 .hero__visual {
@@ -366,7 +381,11 @@ nav {
 
 .hero-card__main {
   border-radius: 18px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .hero-card__chip {
