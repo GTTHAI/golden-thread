@@ -105,4 +105,54 @@ if (carousel) {
   prevBtn?.addEventListener('click', () => {
     track?.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
   });
+
+  // Hide scroll indicator after user scrolls
+  if (track) {
+    let scrollTimeout;
+    track.addEventListener('scroll', () => {
+      if (window.innerWidth <= 1024) {
+        const indicator = carousel.querySelector('::after');
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+
+        scrollTimeout = setTimeout(() => {
+          if (track.scrollLeft > 50) {
+            carousel.style.setProperty('--scroll-indicator-opacity', '0');
+          }
+        }, 1000);
+      }
+    }, { passive: true });
+  }
 }
+
+// Touch-friendly interactions
+document.addEventListener('DOMContentLoaded', () => {
+  // Add touch feedback to interactive elements
+  const interactiveElements = document.querySelectorAll('.button, .product, .feature, .hero__stat');
+
+  interactiveElements.forEach(element => {
+    element.addEventListener('touchstart', function() {
+      this.style.transform = 'scale(0.98)';
+    }, { passive: true });
+
+    element.addEventListener('touchend', function() {
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+    }, { passive: true });
+  });
+
+  // Improve form elements for mobile
+  const inputs = document.querySelectorAll('input, textarea');
+  inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      // Prevent zoom on iOS
+      this.style.fontSize = '16px';
+    });
+  });
+
+  // Add momentum scrolling
+  const scrollableElements = document.querySelectorAll('.carousel__track');
+  scrollableElements.forEach(element => {
+    element.style.webkitOverflowScrolling = 'touch';
+  });
+});
