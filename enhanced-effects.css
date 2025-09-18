@@ -1,0 +1,219 @@
+/* Enhanced Effects and Animations */
+
+/* Floating Animation for Hero Card - Removed */
+/* Pulse effect for buttons - Removed */
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Particle Background - Removed */
+
+/* Hover Effects for Stats */
+.hero__stat {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__stat:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.hero__stat::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.hero__stat:hover::before {
+  animation: shine 0.5s ease-in-out;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+}
+
+/* Typewriter Effect */
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+/* Parallax Scrolling Effect */
+.parallax {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.parallax-layer {
+  transform: translateZ(-1px) scale(2);
+}
+
+/* Morphing Shapes */
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+.hero-card__glow {
+  animation: morph 8s ease-in-out infinite;
+}
+
+/* Glowing Border Effect */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(198, 145, 44, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(198, 145, 44, 0.8), 0 0 30px rgba(198, 145, 44, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(198, 145, 44, 0.5);
+  }
+}
+
+.hero-card__foot {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Loading Animation for Images */
+@keyframes imageLoad {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+.hero-card__main {
+  animation: imageLoad 1s ease-out;
+}
+
+/* Interactive Hover Effect for Navigation */
+.nav__links a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+  transition: width 0.3s ease;
+}
+
+.nav__links a:hover::after {
+  width: 100%;
+}
+
+.nav__links a:hover {
+  transform: translateY(-2px);
+  color: #ff6b6b;
+}
+
+/* Stagger Animation for Pills */
+.pill {
+  animation: slideInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.pill:nth-child(1) { animation-delay: 0.1s; }
+.pill:nth-child(2) { animation-delay: 0.2s; }
+.pill:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Counter Animation */
+.counter {
+  animation: countUp 2s ease-out;
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll Reveal Animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text Shadow Effect */
+.text-shadow {
+  text-shadow:
+    0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25);
+}
