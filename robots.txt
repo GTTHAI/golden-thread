@@ -1,0 +1,46 @@
+User-agent: *
+Allow: /
+
+# Main sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Block access to sensitive files
+Disallow: /.htaccess
+Disallow: /security.js
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /*.log
+Disallow: /*.bak
+Disallow: /*.sql
+
+# Allow specific files
+Allow: /image/
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /404.html
+Allow: /403.html
+Allow: /500.html
+
+# Crawl delay for being polite to servers
+Crawl-delay: 1
+
+# Specific instructions for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

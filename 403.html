@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ไม่ได้รับอนุญาต - โกลเด้นเธร็ด</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="image/logo.png" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .error-container {
+            max-width: 600px;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .error-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #f5f5f5;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #DAA520, #FFD700);
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .error-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <img src="image/logo.png" alt="Golden Thread Logo" class="logo">
+        <div class="error-code">403</div>
+        <h1 class="error-title">ไม่ได้รับอนุญาต</h1>
+        <p class="error-message">
+            ขออภัย คุณไม่มีสิทธิ์เข้าถึงหน้านี้<br>
+            หากคุณคิดว่านี่เป็นข้อผิดพลาด กรุณาติดต่อผู้ดูแลระบบ
+        </p>
+        <a href="/" class="button">กลับหน้าแรก</a>
+    </div>
+</body>
+</html>
