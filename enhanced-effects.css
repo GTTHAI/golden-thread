@@ -18,6 +18,18 @@
   100% { background-position: 0% 50%; }
 }
 
+/* Disable animations for specific elements */
+.no-animate {
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Move badge up slightly */
+.hero__badge.no-animate {
+  transform: translateY(-10px) !important;
+}
+
 /* Particle Background - Removed */
 
 /* Hover Effects for Stats */
