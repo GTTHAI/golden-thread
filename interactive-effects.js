@@ -4,32 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Removed Particle Background and Mouse Trail
 
-  // Parallax Scrolling
+  // Disabled parallax to prevent scroll issues
   function initParallax() {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.5;
-
-      const parallaxElements = document.querySelectorAll('.hero-card__glow');
-      parallaxElements.forEach(el => {
-        el.style.transform = `translateY(${rate}px)`;
-      });
-    });
+    // Parallax disabled
   }
 
-  // Scroll Reveal Animation
+  // Disabled scroll reveal to prevent scroll issues
   function initScrollReveal() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-        }
-      });
-    }, { threshold: 0.1 });
-
+    // Auto-add revealed class to all sections
     document.querySelectorAll('.section').forEach(section => {
-      section.classList.add('scroll-reveal');
-      observer.observe(section);
+      section.classList.add('scroll-reveal', 'revealed');
     });
   }
 
@@ -60,15 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         };
 
-        // Start animation when element is visible
-        const observer = new IntersectionObserver((entries) => {
-          if (entries[0].isIntersecting) {
-            updateCounter();
-            observer.disconnect();
-          }
-        });
-
-        observer.observe(counter);
+        // Start animation immediately (no observer)
+        setTimeout(updateCounter, 1000);
       }
     });
   }

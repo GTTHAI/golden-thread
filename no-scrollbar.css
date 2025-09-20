@@ -1,0 +1,55 @@
+/* Single scroll control */
+html {
+  overflow: hidden !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: 100vh !important;
+}
+
+/* Remove all scrollbars completely except main page scroll */
+*:not(html):not(body) {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow: visible !important;
+}
+
+/* Hide scrollbars but keep main page scrollable */
+*:not(html):not(body)::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+*:not(html):not(body)::-webkit-scrollbar-track {
+  display: none !important;
+}
+
+*:not(html):not(body)::-webkit-scrollbar-thumb {
+  display: none !important;
+}
+
+*:not(html):not(body)::-webkit-scrollbar-corner {
+  display: none !important;
+}
+
+/* Allow main page scroll but remove behaviors from other elements */
+.shell, .section, .carousel, .carousel__track {
+  scroll-behavior: unset !important;
+  -webkit-overflow-scrolling: unset !important;
+  overscroll-behavior: unset !important;
+  scroll-snap-type: unset !important;
+}
+
+/* Keep body scrollable only */
+body {
+  scroll-behavior: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.carousel__track {
+  overflow: visible !important;
+}

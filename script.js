@@ -28,27 +28,14 @@ const handleScrollNav = () => {
 };
 
 handleScrollNav();
-window.addEventListener('scroll', handleScrollNav, { passive: true });
+// Disabled scroll event listener to prevent scroll issues
+// window.addEventListener('scroll', handleScrollNav, { passive: true });
 
-const animated = document.querySelectorAll('[data-animate]');
-if (animated.length) {
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.18,
-      rootMargin: '0px 0px -60px 0px',
-    }
-  );
-
-  animated.forEach((el) => observer.observe(el));
-}
+// Disabled animation observers to prevent scroll issues
+// const animated = document.querySelectorAll('[data-animate]');
+// if (animated.length) {
+//   animated.forEach((el) => el.classList.add('is-visible'));
+// }
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -86,43 +73,7 @@ if (parallaxCard && !prefersReducedMotion) {
   });
 }
 
-const carousel = document.querySelector('[data-carousel]');
-if (carousel) {
-  const track = carousel.querySelector('[data-carousel-track]');
-  const prevBtn = carousel.querySelector('[data-carousel-prev]');
-  const nextBtn = carousel.querySelector('[data-carousel-next]');
-
-  const scrollByAmount = () => {
-    if (!track) return 0;
-    const card = track.querySelector('.product');
-    return card ? card.getBoundingClientRect().width + 24 : 260;
-  };
-
-  nextBtn?.addEventListener('click', () => {
-    track?.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
-  });
-
-  prevBtn?.addEventListener('click', () => {
-    track?.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
-  });
-
-  // Hide scroll indicator after user scrolls
-  if (track) {
-    let scrollTimeout;
-    track.addEventListener('scroll', () => {
-      if (window.innerWidth <= 1024) {
-        const indicator = carousel.querySelector('::after');
-        if (scrollTimeout) clearTimeout(scrollTimeout);
-
-        scrollTimeout = setTimeout(() => {
-          if (track.scrollLeft > 50) {
-            carousel.style.setProperty('--scroll-indicator-opacity', '0');
-          }
-        }, 1000);
-      }
-    }, { passive: true });
-  }
-}
+// Carousel functionality removed - showing all cards in grid now
 
 // Touch-friendly interactions
 document.addEventListener('DOMContentLoaded', () => {
